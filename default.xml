@@ -5,13 +5,6 @@
   <remote  name="aosp"
            fetch="https://android.googlesource.com/"
            review="android-review.googlesource.com" />
-a<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-
-  <!-- Official Google AOSP Remote -->
-  <remote  name="aosp"
-           fetch="https://android.googlesource.com/"
-           review="android-review.googlesource.com" />
 
   <!-- Your Custom GitHub Organization Remote -->
   <remote  name="altamira"
@@ -49,35 +42,5 @@ a<?xml version="1.0" encoding="UTF-8"?>
 
   <!-- Your Amlogic 4.9 Kernel Source -->
   <project path="kernel/droidlogic/4.9" name="android_kernel_droidlogic_4.9" remote="altamira" />
-
-</manifest>
-  <!-- Your Custom GitHub Organization Remote -->
-  <remote  name="altamira"
-           fetch="https://github.com/Altamira-K/"
-           revision="main" />
-
-  <!-- Set the default remote to official AOSP -->
-  <default revision="refs/tags/android-14.0.0_r50"
-           remote="aosp"
-           sync-j="4" />
-
-  <!-- Core AOSP Infrastructure Projects -->
-  <project path="build/make" name="platform/build" groups="pdk,tradefed" >
-      <linkfile src="CleanSpec.mk" dest="CleanSpec.mk" />
-      <linkfile src="buildspec.mk.default" dest="buildspec.mk.default" />
-      <linkfile src="core/root.mk" dest="Makefile" />
-  </project>
-  
-  <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" />
-  <project path="build/soong" name="platform/build/soong" groups="pdk,tradefed" >
-      <linkfile src="root.bp" dest="Android.bp" />
-  </project>
-
-  <!-- ========================================== -->
-  <!-- YOUR CUSTOM/FORKED TELEVISION REPOSITORIES -->
-  <!-- ========================================== -->
-  <!-- If you fork a specific AOSP repo to customize it, change its remote to 'altamira' -->
-  <!-- Example: For customizing the framework or adding TV configurations -->
-  <!-- <project path="frameworks/base" name="android_frameworks_base" remote="altamira" revision="14-custom" /> -->
 
 </manifest>
