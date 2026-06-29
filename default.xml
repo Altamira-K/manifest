@@ -9,14 +9,16 @@
   <!-- Your Custom GitHub Organization Remote -->
   <remote  name="altamira"
            fetch="https://github.com/Altamira-K/"
-           revision="pie-tv" /> <!-- We use a custom branch name like pie-tv -->
+           revision="main" />
 
-  <!-- Set baseline to Android 9.0 Pie (Revision tag for Pie TV builds) -->
+  <!-- Set baseline to Android 9.0 Pie (Matches your TV's API 28) -->
   <default revision="refs/tags/android-9.0.0_r61"
            remote="aosp"
            sync-j="4" />
 
-  <!-- Core AOSP Build tools -->
+  <!-- ======================================================= -->
+  <!-- ⚙️ CORE AOSP BUILD INFRASTRUCTURE                      -->
+  <!-- ======================================================= -->
   <project path="build/make" name="platform/build" groups="pdk,tradefed" >
       <linkfile src="CleanSpec.mk" dest="CleanSpec.mk" />
       <linkfile src="buildspec.mk.default" dest="buildspec.mk.default" />
@@ -27,9 +29,6 @@
       <linkfile src="root.bp" dest="Android.bp" />
   </project>
 
-  <!-- Include other essential core platform paths here if building fully from source, 
-       or use an existing open-source manifest baseline -->
-
   <!-- ======================================================= -->
   <!-- 📺 ALTAMIRA-K CUSTOM TV HARDWARE REPOSITORIES           -->
   <!-- ======================================================= -->
@@ -37,7 +36,7 @@
   <!-- Your custom device configuration tree -->
   <project path="device/droidlogic/r34az" name="android_device_droidlogic_r34az" remote="altamira" />
 
-  <!-- Your proprietary vendor blobs (GPU drivers, Wi-Fi firmware, audio HALs) -->
+  <!-- Your proprietary vendor blobs (GPU, Wi-Fi, Audio HALs) -->
   <project path="vendor/droidlogic/r34az" name="android_vendor_droidlogic_r34az" remote="altamira" />
 
   <!-- Your Amlogic 4.9 Kernel Source -->
